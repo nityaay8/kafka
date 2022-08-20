@@ -14,4 +14,4 @@ at sun.security.provider.certpath.SunCertPathBuilder.build(SunCertPathBuilder.ja
 at sun.security.provider.certpath.SunCertPathBuilder.engineBuild(SunCertPathBuilder.java:131) ~[na:1.8.0]
 
 ## to fix above issue
-upgradr to java 11
+upgrade to java 11
