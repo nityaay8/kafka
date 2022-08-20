@@ -1,0 +1,10 @@
+=== Confluent Cloud API key: lkc-12kgr3 ===
+
+API key:
+YGGM2IA2SYYAF632
+
+API secret:
+dDMTNs4AgaARRS+GEKUriU4VBVlePB8+3q1BEKFM86nAMfDqlVRp9LiUHFjpl6NU
+
+Bootstrap server:
+SASL_SSL://pkc-ymrq7.us-east-2.aws.confluent.cloud:9092
