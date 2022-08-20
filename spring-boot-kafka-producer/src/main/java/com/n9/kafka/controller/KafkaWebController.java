@@ -20,7 +20,7 @@ public class KafkaWebController {
     private ProducerService producerService;
 
     @PostMapping("send")
-    public ResponseEntity sendMsg(@RequestBody String body) {
+    public ResponseEntity sendMsg(@RequestBody Employee body) {
         ProducedInfo producedInfo  = null;
         try {
             System.out.println("req = " + body);

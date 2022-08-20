@@ -3,6 +3,7 @@ package com.n9.kafka.consumer;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.n9.kafka.model.ConsumerInfo;
+import com.n9.kafka.model.Employee;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ public class ConsumerService {
 
     private ObjectMapper mapper = new ObjectMapper();
 
-    public void processMsg(String consumer, ConsumerRecord<String, String> payload) {
+    public void processMsg(String consumer, ConsumerRecord<String, Employee> payload) {
 
         try {
             ConsumerInfo consumerInfo = new ConsumerInfo();
@@ -20,6 +21,8 @@ public class ConsumerService {
             consumerInfo.setPartition(payload.partition());
             consumerInfo.setTopic(payload.topic());
             consumerInfo.setOffset(payload.offset());
+
+            System.out.println("received value  =" + payload.value());
 
 
             String jsonStr = mapper.writeValueAsString(consumerInfo);

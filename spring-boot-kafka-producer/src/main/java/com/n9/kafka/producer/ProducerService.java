@@ -13,21 +13,21 @@ import org.springframework.util.concurrent.ListenableFuture;
 public class ProducerService {
 
     @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private KafkaTemplate<String, Employee> kafkaTemplate;
 
 
 
-    String kafkaTopic1 = "topic_0";
+    String kafkaTopic1 = "topic_2";
 
-    String kafkaTopic2 = "topic_2";
 
-    public ProducedInfo send(String message) throws Exception {
+
+    public ProducedInfo send(Employee message) throws Exception {
 
         ProducedInfo producedInfo = new ProducedInfo();
 
-        ListenableFuture<SendResult<String, String>> resultFuture = kafkaTemplate.send(kafkaTopic1, message);
+        ListenableFuture<SendResult<String, Employee>> resultFuture = kafkaTemplate.send(kafkaTopic1, message);
 
-        SendResult<String, String> result = resultFuture.get();
+        SendResult<String, Employee> result = resultFuture.get();
 
         producedInfo.setOffset(result.getRecordMetadata().offset());
 
