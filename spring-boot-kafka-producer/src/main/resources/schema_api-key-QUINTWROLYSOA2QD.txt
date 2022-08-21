@@ -1,0 +1,7 @@
+=== Confluent Cloud API key: lsrc-9kqk70 ===
+
+API key:
+QUINTWROLYSOA2QD
+
+API secret:
+/7T2QdafQSj1yZwjAU7i2EkCDkiNLYmNOnz5J6Q7N9ZK8S6SZouQ/a+IPub3XfKh

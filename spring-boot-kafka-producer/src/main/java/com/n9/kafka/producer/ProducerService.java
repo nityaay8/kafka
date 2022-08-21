@@ -1,9 +1,9 @@
 package com.n9.kafka.producer;
 
-import com.n9.kafka.model.Employee;
+import com.n9.kafka.model.EmployeeReq;
 import com.n9.kafka.model.ProducedInfo;
+import com.n9.schema.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Service;
@@ -16,16 +16,16 @@ public class ProducerService {
     private KafkaTemplate<String, Employee> kafkaTemplate;
 
 
-
-    String kafkaTopic1 = "topic_2";
-
+    String kafkaTopic1 = "topic_3";
 
 
-    public ProducedInfo send(Employee message) throws Exception {
+    public ProducedInfo send(EmployeeReq message) throws Exception {
 
         ProducedInfo producedInfo = new ProducedInfo();
 
-        ListenableFuture<SendResult<String, Employee>> resultFuture = kafkaTemplate.send(kafkaTopic1, message);
+        Employee employee = Employee.newBuilder().setId(message.getId()).setFirstName(message.getName()).setLastName(message.getName()).build();
+
+        ListenableFuture<SendResult<String, Employee>> resultFuture = kafkaTemplate.send(kafkaTopic1, employee);
 
         SendResult<String, Employee> result = resultFuture.get();
 
@@ -35,12 +35,10 @@ public class ProducerService {
 
         producedInfo.setTopicPartition(result.getRecordMetadata().partition());
 
-        producedInfo.setValue(result.getProducerRecord().value());
+        producedInfo.setValue(result.getProducerRecord().value().toString());
 
 
         return producedInfo;
     }
-
-
 
 }

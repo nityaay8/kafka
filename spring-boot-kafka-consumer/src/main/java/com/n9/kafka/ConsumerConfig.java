@@ -1,7 +1,7 @@
 package com.n9.kafka;
 
 import com.n9.kafka.consumer.ConsumerService;
-import com.n9.kafka.model.Employee;
+import com.n9.schema.Employee;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +10,7 @@ import org.springframework.kafka.annotation.KafkaListener;
 @Configuration
 public class ConsumerConfig {
 
-    private static final String kafkaTopic = "topic_2";
+    private static final String kafkaTopic = "topic_3";
 
     @Autowired
     private ConsumerService consumerService;
